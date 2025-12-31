@@ -1,16 +1,20 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 import app from "./app.js";
-dotenv.config({
-  path: "./.env",
-});
+import { connectDB } from "./database/index.js";
 
 const PORT = process.env.PORT || 3000;
 
-app.on("error", (error) => {
-  console.error("ERROR:", error);
-  throw error;
-});
+connectDB()
+  .then(() => {
+    app.on("error", (error) => {
+      console.error("ERROR:", error);
+      throw error;
+    });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server app is listening on port ${PORT}`);
-});
+    app.listen(PORT, () => {
+      console.log(`✅ Server app is listening on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("❌ MySQL Connection Failed !!", error)
+  })
