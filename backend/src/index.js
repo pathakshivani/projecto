@@ -16,5 +16,5 @@ connectDB()
     });
   })
   .catch((error) => {
-    console.error("❌ MySQL Connection Failed !!", error)
-  })
+    console.error("❌ MySQL Connection Failed !!", error);
+  });
