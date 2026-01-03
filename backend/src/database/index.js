@@ -7,9 +7,9 @@ const connection = await mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: DB_NAME,
-  ssl: {
-    ca: process.env.DB_SSL_CA,
-  },
+  // ssl: {
+  //   ca: process.env.DB_SSL_CA,
+  // },
 });
 
 const connectDB = async () => {

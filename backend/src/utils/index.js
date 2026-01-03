@@ -10,6 +10,7 @@ import {
   generateTemporaryToken,
 } from "./jsonwebtoken.js";
 import { hsashPassword, comparePassword } from "./bcrypt.js";
+import generateUniqueId from "./uniqueId.js";
 
 export {
   asyncHandler,
@@ -23,4 +24,5 @@ export {
   generateTemporaryToken,
   hsashPassword,
   comparePassword,
+  generateUniqueId,
 };
